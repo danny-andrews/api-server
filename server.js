@@ -1,9 +1,7 @@
 import express from "express";
 import postgres from "postgres";
 
-const sql = postgres(
-  "postgres://calorie_tracker_user:aRpBEWJAcR5OV8iS9XC4BAJZngOLeIx9@dpg-cedlbb82i3mr7lhb5arg-a.oregon-postgres.render.com/calorie_tracker?ssl=true"
-);
+const sql = postgres(process.env.DATABASE_URL);
 
 const app = express();
 
