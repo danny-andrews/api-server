@@ -1,11 +1,15 @@
 import express from "express";
 import postgres from "postgres";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const sql = postgres(process.env.DATABASE_URL);
 
 const app = express();
 
 app.use(express.json());
+
 app.use(express.static("./client"));
 
 app.get("/meals", (req, res) => {
@@ -23,4 +27,4 @@ app.post("/meals", (req, res) => {
   );
 });
 
-app.listen(3000);
+app.listen(process.env.PORT);
